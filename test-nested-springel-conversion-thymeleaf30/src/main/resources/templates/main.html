@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Test SpringEL Conversion</title>
+</head>
+<body>
+
+    <h1>Thymeleaf 3.0.3 (Spring Boot 1.4.3)</h1>
+
+    <section>
+        <h3>Outside Form</h3>
+        <p>Abstract Field: </p>
+        <ul>
+            <li>Without <kdb>th:object</kdb>: <span th:text="${{bean.fieldAbs}}">...</span></li>
+            <li th:object="${bean}">With <kdb>th:object</kdb>: <span th:text="*{{fieldAbs}}">...</span></li>
+        </ul>
+        <p>Concrete Field: </p>
+        <ul>
+            <li>Without <kdb>th:object</kdb> <span th:text="${{bean.fieldConc}}">...</span></li>
+            <li th:object="${bean}">With <kdb>th:object</kdb> <span th:text="*{{fieldConc}}">...</span></li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Inside Form</h3>
+        <form th:object="${bean}">
+            <fieldset>
+                <p>
+                    <label for="fieldAbs">Abstract field:</label>
+                    <input th:field="*{fieldAbs}" />
+                </p>
+                <p>
+                    <label for="fieldConc">Concrete field:</label>
+                    <input th:field="*{fieldConc}" />
+                </p>
+            </fieldset>
+        </form>
+    </section>
+
+</body>
+</html>
