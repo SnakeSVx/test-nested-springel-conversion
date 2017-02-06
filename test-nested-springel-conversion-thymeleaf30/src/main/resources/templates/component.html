@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<div th:fragment="field(field)">
+    <span th:text="*{{__${field}__}}">div</span>
+</div>
+
+<div th:fragment="fieldFixed(field)">
+    <span th:text="*{{''+__${field}__}}">div</span>
+</div>
+
+</body>
+
+</html>
